@@ -22,7 +22,8 @@
     "ember-cli-babel": "^6.3.0",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^0.4.3",
-    "leaflet": "^1.5.1"
+    "leaflet": "^1.5.1",
+    "phantomjs": "^2.1.7"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
