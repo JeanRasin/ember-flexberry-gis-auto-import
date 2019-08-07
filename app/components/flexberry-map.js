@@ -1,0 +1,1 @@
+export { default } from 'ember-flexberry-gis-auto-import/components/flexberry-map';

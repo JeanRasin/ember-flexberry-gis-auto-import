@@ -3,17 +3,31 @@
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
+/* leaflet plugin resources */
+const LeafletPath = 'node_modules/leaflet/dist/';
+const LeafletImgPath = LeafletImgPath + 'images/';
+
+/* processed resources */
+const OutputFolder = '/assets/';
+const OutputImgFolder = OutputFolder + 'images';
+
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
-    // Add options here
+    // minifyJS: {
+    //   enabled: true
+    // },
+    minifyCSS: {
+      enabled: true
+    }
   });
 
-  /*
-    This build file specifies the options for the dummy test app of this
-    addon, located in `/tests/dummy`
-    This build file does *not* influence how the addon or the app using it
-    behave. You most likely want to be modifying `./index.js` or app's build file
-  */
+  app.import (LeafletPath + 'leaflet.css', { outputFile: OutputFolder + 'leaflet.css' })
+
+  app.import(LeafletImgPath+'layers.png', { destDir: OutputImgFolder });
+  app.import(LeafletImgPath+'layers-2x.png', { destDir: OutputImgFolder });
+  app.import(LeafletImgPath+'marker-icon.png', { destDir: OutputImgFolder });
+  app.import(LeafletImgPath+'marker-icon-2x.png', { destDir: OutputImgFolder });
+  app.import(LeafletImgPath+'marker-shadow.png', { destDir: OutputImgFolder });
 
   return app.toTree();
 };
