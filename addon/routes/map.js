@@ -1,24 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-
-  addLinkStyle(fileName) {
-
-    if(Ember.isNone(fileName))
-    {
-      console.log('Specify file name.');
-      return;
-    }
-
-    var head = document.head;
-    var link = document.createElement("link");
-
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    link.href = fileName;
-
-    head.appendChild(link);
-  },
     /**
     Called before the router attempts to resolve the model for the given route.
   */
@@ -31,11 +13,12 @@ export default Ember.Route.extend({
     // Load leaflet asynchronously.
     return import('leaflet').then((leaflet) => {
       const leafletCss = '/assets/leaflet.css';
-     //console.log(this);
-   //  debugger;
+      const iconFolder = 'assets/images/leaflet/';
 
-      this.addLinkStyle(leafletCss);
+      Ember.$('<link/>', {rel: 'stylesheet', type : 'text/css', href: leafletCss}).appendTo('head');
 
+      // map icon folder
+      leaflet.Icon.Default.imagePath = iconFolder;
       window.L = leaflet;
 
       console.log('Successfully load leaflet asynchronously.');
