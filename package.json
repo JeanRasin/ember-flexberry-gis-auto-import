@@ -23,7 +23,7 @@
     "phantomjs": "^2.1.7"
   },
   "devDependencies": {
-    "ember-promise-helpers": "1.0.8",
+    "ember-promise-helpers": "1.0.9",
     "babel-eslint": "^10.0.2",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
